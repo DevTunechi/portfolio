@@ -26,14 +26,14 @@ export default function Home() {
 
   const caseStudies = [
     {
-      title: 'A gig marketplace where reliability and trust is the real product',
-      tags: ['🚀Shipped product', 'App design', 'Dashboard', 'Marketplace'],
+      title: 'Crypto investments made easy, reliable and trustworthy for everyone.',
+      tags: ['🚀Shipped product', 'Dashboard', 'Marketplace'],
       imgLeft: '/1.jpeg',
       imgRight: '/2.jpeg',
     },
     {
-      title: 'Media experiences that inform, engage, and flow.',
-      tags: ['🚀Shipped product', 'App & Web', 'Media & News'],
+      title: 'Easy to use online banking platform, hardcore backend.',
+      tags: ['🚀Shipped product', 'Web Based', 'Finance'],
       imgLeft: '/3.jpeg',
       imgRight: '/4.jpeg',
     },
