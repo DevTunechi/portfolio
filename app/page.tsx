@@ -27,7 +27,7 @@ export default function Home() {
   const caseStudies = [
     {
       title: 'Crypto investments made easy, reliable and trustworthy for everyone.',
-      tags: ['🚀Shipped product', 'Dashboard', 'Marketplace'],
+      tags: ['🚀Shipped product', 'Crypto', 'Investment'],
       imgLeft: '/1.jpeg',
       imgRight: '/2.jpeg',
     },
@@ -73,7 +73,6 @@ export default function Home() {
         
         {/* Profile / Hero Section */}
         <section className="mb-48 flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
-          {/* Profile Card */}
           <div className="relative w-[300px] bg-white p-3 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-slate-100 -rotate-2">
             <div className="aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] bg-slate-100">
                <img src="/5.JPG" alt="Olatunji" className="w-full h-full object-cover" />
@@ -94,10 +93,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Intro Text - Updated per request */}
           <div className="max-w-md text-center md:text-left">
             <h2 className="text-[26px] md:text-[32px] font-medium leading-[1.4] text-slate-800">
-              I’m Olatunji, a backend engineer who solves problems by understanding people and turning <span className="font-bold italic text-[#1e711e]">ideas</span> into <span className="font-bold italic">practical solutions.</span>
+              I’m Olatunji, an engineer who solves problems by understanding people and turning <span className="font-bold italic text-[#1e711e]">ideas</span> into <span className="font-bold italic">practical solutions.</span>
             </h2>
             <div className="mt-10 flex justify-center md:justify-start gap-4">
                <Link 
@@ -168,7 +166,8 @@ export default function Home() {
                       <span key={i} className={tagClass}>{tag}</span>
                     ))}
                   </div>
-                  <h4 className="text-[22px] font-bold leading-[1.3] text-slate-900 underline decoration-slate-300 underline-offset-[6px] group-hover:decoration-[#1e711e] transition-all">
+                  {/* Updated Font Size & Removed Underline */}
+                  <h4 className="text-lg font-bold leading-[1.3] text-slate-900 transition-colors group-hover:text-[#1e711e]">
                     {study.title}
                   </h4>
                 </div>
