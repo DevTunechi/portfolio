@@ -79,7 +79,7 @@ export default function Home() {
             </div>
             <div className="mt-5 flex justify-between items-center px-2 pb-1">
               <div>
-                <p className="text-[13px] font-bold text-slate-900 leading-none">@kunledare</p>
+                <p className="text-[13px] font-bold text-slate-900 leading-none">@DevTunechi</p>
                 <p className="text-[10px] text-slate-400 mt-1">LinkedIn</p>
               </div>
               <a 
