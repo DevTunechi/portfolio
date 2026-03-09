@@ -1,10 +1,24 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Resume() {
-  const navItemClass = "text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-black transition-colors"
-  const talkBtnClass = "bg-[#1e711e] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-6 py-2.5 rounded-full hover:bg-[#155315] transition-all"
+  const [dark, setDark] = useState(false)
+
+  useEffect(() => {
+    const saved = localStorage.getItem('darkMode')
+    if (saved === 'true') setDark(true)
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', String(dark))
+    if (dark) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, [dark])
 
   const techExperience = [
     {
@@ -83,98 +97,132 @@ export default function Resume() {
   ]
 
   const certifications = [
-    {
-      name: 'AI Starter Kit',
-      issuer: 'ALX Africa',
-      year: 'Mar 2025',
-    },
-    {
-      name: 'Foundations in Specialization',
-      issuer: 'ALX Africa — Professional Development Skills for the Digital Age & Tech Career Specialization',
-      year: 'Feb 2025',
-    },
-    {
-      name: 'Agile Project Management',
-      issuer: 'HP LIFE / HP Foundation',
-      year: 'Feb 2025',
-    },
-    {
-      name: 'Software Engineering — Back-End Specialization (12 Months)',
-      issuer: 'ALX Africa / Holberton Inc',
-      year: 'Nov 2024',
-    },
-    {
-      name: 'File & Folder Management Using PowerShell',
-      issuer: 'Udemy — Luxmi Narayan',
-      year: 'Sep 2023',
-    },
-    {
-      name: 'Soft-Skills Training',
-      issuer: 'Jobberman Nigeria (in partnership with Mastercard Foundation & Young Africa Works)',
-      year: 'Sep 2023',
-    },
+    { name: 'AI Starter Kit', issuer: 'ALX Africa', year: 'Mar 2025' },
+    { name: 'Foundations in Specialization', issuer: 'ALX Africa — Professional Development Skills for the Digital Age & Tech Career Specialization', year: 'Feb 2025' },
+    { name: 'Agile Project Management', issuer: 'HP LIFE / HP Foundation', year: 'Feb 2025' },
+    { name: 'Software Engineering — Back-End Specialization (12 Months)', issuer: 'ALX Africa / Holberton Inc', year: 'Nov 2024' },
+    { name: 'File & Folder Management Using PowerShell', issuer: 'Udemy — Luxmi Narayan', year: 'Sep 2023' },
+    { name: 'Soft-Skills Training', issuer: 'Jobberman Nigeria (in partnership with Mastercard Foundation & Young Africa Works)', year: 'Sep 2023' },
     { name: 'Cinematography', issuer: 'Akin Alabi Film Institute', year: '2013' },
     { name: 'CISCO Networking (CCNA)', issuer: 'Karrox Nigeria Limited', year: '2009' },
   ]
 
-  const techSkills = [
-    'React / Next.js', 'Node.js', 'TypeScript', 'REST APIs', 'SaaS Architecture', 'QR Systems',
-  ]
-
+  const techSkills = ['React / Next.js', 'Node.js', 'TypeScript', 'REST APIs', 'SaaS Architecture', 'QR Systems']
   const creativeSkills = [
     'Camera Operation (Sony, Canon, Nikon, Blackmagic)', 'Lighting Setup & Composition',
     'Video Editing (Adobe Premiere Pro, CapCut)', 'Drone Filming & Aerial Coverage',
     'Storyboarding & Script Visualization', 'Team Leadership & On-Set Coordination',
   ]
 
+  // Theme tokens — mirrors page.tsx exactly
+  const bg         = dark ? 'bg-[#0f1310]'                  : 'bg-white'
+  const text       = dark ? 'text-white'                     : 'text-slate-900'
+  const subtext    = dark ? 'text-slate-300'                 : 'text-slate-700'
+  const muted      = dark ? 'text-slate-400'                 : 'text-slate-500'
+  const navText    = dark ? 'text-slate-300 hover:text-white': 'text-slate-600 hover:text-black'
+  const hdrBdr     = dark ? 'border-slate-800'               : 'border-slate-100'
+  const divider    = dark ? 'border-slate-800'               : 'border-slate-100'
+  const toggleBtn  = dark
+    ? 'border-slate-700 bg-slate-800 text-yellow-400 hover:bg-slate-700'
+    : 'border-slate-200 bg-slate-100 text-slate-600 hover:bg-slate-200'
+  const roleTitle  = dark ? 'text-slate-100'                 : 'text-slate-800'
+  const certName   = dark ? 'text-slate-100'                 : 'text-slate-800'
+  const skillEngBg = dark ? 'bg-[#1a2a1a] border-[#2a3f2a] text-slate-200' : 'bg-[#f0fdf4] border-[#dcfce7] text-slate-700'
+  const skillPrdBg = dark ? 'bg-slate-800 border-slate-700 text-slate-300'  : 'bg-slate-50 border-slate-200 text-slate-600'
+  const skillLabel = dark ? 'text-slate-300'                 : 'text-slate-700'
+  const footerCta  = dark
+    ? 'border-slate-600 text-slate-200 hover:bg-[#1e711e] hover:border-[#1e711e] hover:text-white'
+    : 'border-black text-black hover:bg-[#1e711e] hover:border-[#1e711e] hover:text-white'
+
   return (
-    <div className="min-h-screen font-sans overflow-x-hidden bg-white text-foreground">
-      {/* Header */}
-      <header className="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-serif font-bold tracking-tight text-[#1e711e]">
-          Olatunji
-        </Link>
-        <nav className="flex items-center gap-8">
-          <Link href="/" className={navItemClass}>Work</Link>
-          <Link href="/resume" className={navItemClass}>Resume</Link>
-          <a href="mailto:tunjidare2@yahoo.com" className={talkBtnClass}>Let's talk</a>
-        </nav>
+    <div className={`min-h-screen font-sans overflow-x-hidden transition-colors duration-300 ${bg} ${text}`}>
+
+      {/* ── Header — identical structure to homepage ── */}
+      <header className={`sticky top-0 z-50 ${bg} border-b ${hdrBdr} transition-colors duration-300`}>
+        <div className="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
+
+          {/* Logo only */}
+          <Link href="/" aria-label="Home" className="shrink-0">
+            <img src="/logo-10.png" alt="Olatunji logo" className="h-11 w-auto" />
+          </Link>
+
+          {/* Nav */}
+          <nav className="flex items-center gap-3 sm:gap-5 min-w-0">
+            <a
+              href="/#experience"
+              className={`text-[11px] font-bold uppercase tracking-[0.18em] transition-colors ${navText}`}
+            >
+              Work
+            </a>
+            <Link
+              href="/resume"
+              className={`text-[11px] font-bold uppercase tracking-[0.18em] transition-colors text-[#1e711e]`}
+            >
+              Resume
+            </Link>
+
+            {/* Dark mode toggle */}
+            <button
+              onClick={() => setDark(!dark)}
+              aria-label="Toggle dark mode"
+              className={`w-9 h-9 rounded-full flex items-center justify-center border transition-all ${toggleBtn}`}
+            >
+              {dark ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <circle cx="12" cy="12" r="5" />
+                  <path strokeLinecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+              )}
+            </button>
+
+            <a
+              href="mailto:tunjidare2@yahoo.com"
+              className="bg-[#1e711e] text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] px-4 sm:px-5 py-2.5 rounded-full hover:bg-[#155315] transition-all whitespace-nowrap"
+            >
+              Let's talk
+            </a>
+          </nav>
+        </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      <main className="max-w-4xl mx-auto px-5 py-12">
 
-        {/* Page Title */}
-        <div className="mb-20 border-b border-slate-100 pb-16">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-4">Resume</p>
-          <h2 className="text-5xl md:text-6xl font-serif text-slate-900 leading-[1.1] mb-8">
+        {/* ── Page Title ── */}
+        <div className={`mb-14 border-b ${divider} pb-12`}>
+          <p className={`text-[11px] font-bold uppercase tracking-[0.2em] mb-4 ${muted}`}>Resume</p>
+          <h2 className={`text-5xl md:text-6xl font-serif leading-[1.1] mb-7 ${text}`}>
             Oluwadare<br />Olatunji
           </h2>
-          <p className="text-slate-500 text-[15px] leading-relaxed max-w-2xl">
+          <p className={`text-[15px] leading-relaxed max-w-2xl ${subtext}`}>
             Full Stack Engineer & Creative Technologist. I build reliable digital products and capture compelling stories — 10+ years in visual production, 3+ years in software engineering.
           </p>
-          <div className="mt-8 flex flex-wrap gap-6 text-[12px] text-slate-500 font-medium">
-            <a href="tel:+2348107467220" className="hover:text-black transition-colors">+234 810 746 7220</a>
-            <a href="mailto:tunjidare2@yahoo.com" className="hover:text-black transition-colors">tunjidare2@yahoo.com</a>
-            <a href="https://www.linkedin.com/in/olatunji-oluwadare/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">linkedin.com/in/olatunji-oluwadare</a>
-            <span className="text-slate-400">Based in Lagos, Nigeria</span>
+          <div className={`mt-7 flex flex-wrap gap-5 text-[12px] font-medium ${muted}`}>
+            <a href="tel:+2348107467220" className="hover:text-[#1e711e] transition-colors">+234 810 746 7220</a>
+            <a href="mailto:tunjidare2@yahoo.com" className="hover:text-[#1e711e] transition-colors">tunjidare2@yahoo.com</a>
+            <a href="https://www.linkedin.com/in/olatunji-oluwadare/" target="_blank" rel="noopener noreferrer" className="hover:text-[#1e711e] transition-colors">linkedin.com/in/olatunji-oluwadare</a>
+            <span>Based in Lagos, Nigeria</span>
           </div>
         </div>
 
-        {/* Tech Experience */}
-        <section className="mb-20">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-12">Software Engineering</p>
-          <div className="space-y-14">
+        {/* ── Software Engineering ── */}
+        <section className="mb-14">
+          <p className={`text-[11px] font-bold uppercase tracking-[0.22em] mb-10 ${muted}`}>Software Engineering</p>
+          <div className="space-y-12">
             {techExperience.map((role, idx) => (
-              <div key={idx} className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-12">
+              <div key={idx} className="grid grid-cols-1 md:grid-cols-[190px_1fr] gap-3 md:gap-10">
                 <div className="pt-0.5">
-                  <p className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.1em] leading-relaxed">{role.period}</p>
+                  <p className={`text-[11px] font-bold uppercase tracking-[0.1em] leading-relaxed ${muted}`}>{role.period}</p>
                   <p className="text-[13px] font-semibold text-[#1e711e] mt-1">{role.company}</p>
                 </div>
                 <div>
-                  <h4 className="text-[20px] font-serif italic text-slate-800 mb-4">{role.title}</h4>
+                  <h4 className={`text-[19px] font-serif italic mb-3 ${roleTitle}`}>{role.title}</h4>
                   <ul className="space-y-2">
                     {role.points.map((point, i) => (
-                      <li key={i} className="text-[14px] text-slate-500 leading-relaxed flex gap-3">
+                      <li key={i} className={`text-[14px] leading-relaxed flex gap-3 ${subtext}`}>
                         <span className="text-[#1e711e] mt-1.5 shrink-0">—</span>
                         {point}
                       </li>
@@ -186,24 +234,23 @@ export default function Resume() {
           </div>
         </section>
 
-        {/* Divider */}
-        <div className="border-t border-slate-100 my-20" />
+        <div className={`border-t ${divider} my-14`} />
 
-        {/* Creative Experience */}
-        <section className="mb-20">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-12">Film & Production</p>
-          <div className="space-y-14">
+        {/* ── Film & Production ── */}
+        <section className="mb-14">
+          <p className={`text-[11px] font-bold uppercase tracking-[0.22em] mb-10 ${muted}`}>Film & Production</p>
+          <div className="space-y-12">
             {creativeExperience.map((role, idx) => (
-              <div key={idx} className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-12">
+              <div key={idx} className="grid grid-cols-1 md:grid-cols-[190px_1fr] gap-3 md:gap-10">
                 <div className="pt-0.5">
-                  <p className="text-[12px] font-bold text-slate-400 uppercase tracking-[0.1em] leading-relaxed">{role.period}</p>
+                  <p className={`text-[11px] font-bold uppercase tracking-[0.1em] leading-relaxed ${muted}`}>{role.period}</p>
                   <p className="text-[13px] font-semibold text-[#1e711e] mt-1">{role.company}</p>
                 </div>
                 <div>
-                  <h4 className="text-[20px] font-serif italic text-slate-800 mb-4">{role.title}</h4>
+                  <h4 className={`text-[19px] font-serif italic mb-3 ${roleTitle}`}>{role.title}</h4>
                   <ul className="space-y-2">
                     {role.points.map((point, i) => (
-                      <li key={i} className="text-[14px] text-slate-500 leading-relaxed flex gap-3">
+                      <li key={i} className={`text-[14px] leading-relaxed flex gap-3 ${subtext}`}>
                         <span className="text-[#1e711e] mt-1.5 shrink-0">—</span>
                         {point}
                       </li>
@@ -215,28 +262,27 @@ export default function Resume() {
           </div>
         </section>
 
-        {/* Divider */}
-        <div className="border-t border-slate-100 my-20" />
+        <div className={`border-t ${divider} my-14`} />
 
-        {/* Skills */}
-        <section className="mb-20">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-12">Skills</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* ── Skills ── */}
+        <section className="mb-14">
+          <p className={`text-[11px] font-bold uppercase tracking-[0.22em] mb-10 ${muted}`}>Skills</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-              <p className="text-[13px] font-bold text-slate-700 mb-5 uppercase tracking-[0.1em]">Engineering</p>
+              <p className={`text-[12px] font-bold mb-4 uppercase tracking-[0.1em] ${skillLabel}`}>Engineering</p>
               <div className="flex flex-wrap gap-2">
                 {techSkills.map((skill, i) => (
-                  <span key={i} className="text-[11px] font-medium px-4 py-1.5 bg-[#f0fdf4] border border-[#dcfce7] rounded-full text-slate-600">
+                  <span key={i} className={`text-[11px] font-medium px-4 py-1.5 border rounded-full ${skillEngBg}`}>
                     {skill}
                   </span>
                 ))}
               </div>
             </div>
             <div>
-              <p className="text-[13px] font-bold text-slate-700 mb-5 uppercase tracking-[0.1em]">Production</p>
+              <p className={`text-[12px] font-bold mb-4 uppercase tracking-[0.1em] ${skillLabel}`}>Production</p>
               <div className="flex flex-wrap gap-2">
                 {creativeSkills.map((skill, i) => (
-                  <span key={i} className="text-[11px] font-medium px-4 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-slate-600">
+                  <span key={i} className={`text-[11px] font-medium px-4 py-1.5 border rounded-full ${skillPrdBg}`}>
                     {skill}
                   </span>
                 ))}
@@ -245,38 +291,37 @@ export default function Resume() {
           </div>
         </section>
 
-        {/* Divider */}
-        <div className="border-t border-slate-100 my-20" />
+        <div className={`border-t ${divider} my-14`} />
 
-        {/* Certifications */}
-        <section className="mb-20">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-12">Certifications</p>
-          <div className="space-y-6">
+        {/* ── Certifications ── */}
+        <section className="mb-14">
+          <p className={`text-[11px] font-bold uppercase tracking-[0.22em] mb-10 ${muted}`}>Certifications</p>
+          <div className="space-y-5">
             {certifications.map((cert, idx) => (
-              <div key={idx} className="flex justify-between items-baseline border-b border-slate-50 pb-6">
+              <div key={idx} className={`flex justify-between items-baseline border-b ${divider} pb-5`}>
                 <div>
-                  <p className="text-[15px] font-semibold text-slate-800">{cert.name}</p>
-                  <p className="text-[12px] text-slate-400 mt-1">{cert.issuer}</p>
+                  <p className={`text-[15px] font-semibold ${certName}`}>{cert.name}</p>
+                  <p className={`text-[12px] mt-1 ${muted}`}>{cert.issuer}</p>
                 </div>
-                <span className="text-[12px] font-bold text-slate-400 shrink-0 ml-4">{cert.year}</span>
+                <span className={`text-[12px] font-bold shrink-0 ml-4 ${muted}`}>{cert.year}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Footer CTA */}
-        <div className="text-center py-20 border-t border-slate-100">
-          <p className="font-serif text-3xl md:text-4xl mb-10 text-slate-900 leading-tight">
+        {/* ── Footer CTA ── */}
+        <div className={`text-center py-16 border-t ${divider}`}>
+          <p className={`font-serif text-3xl md:text-4xl mb-10 leading-tight ${text}`}>
             Let's build something <br />
             <span className="italic text-[#1e711e]">worth remembering.</span>
           </p>
           <a
             href="mailto:tunjidare2@yahoo.com"
-            className="inline-block text-[11px] font-bold uppercase tracking-[0.4em] px-12 py-6 border border-black rounded-full hover:bg-[#1e711e] hover:border-[#1e711e] hover:text-white transition-all duration-300"
+            className={`inline-block text-[11px] font-bold uppercase tracking-[0.4em] px-10 py-5 border rounded-full transition-all duration-300 ${footerCta}`}
           >
             Get in touch →
           </a>
-          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] mt-16">
+          <p className={`text-[10px] font-bold uppercase tracking-[0.2em] mt-14 ${muted}`}>
             © {new Date().getFullYear()} Olatunji Studio — Based in Lagos
           </p>
         </div>
