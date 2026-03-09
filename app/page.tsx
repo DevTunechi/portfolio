@@ -192,9 +192,9 @@ export default function Home() {
           {/* Bio */}
           <div className="max-w-md text-center md:text-left">
             <h2 className={`text-[23px] md:text-[29px] font-medium leading-[1.5] ${text}`}>
-              I'm Olatunji, an engineer who solves problems by understanding people and turning{' '}
-              <span className="font-bold italic text-[#1e711e]">ideas</span> into{' '}
-              <span className="font-bold italic">practical solutions.</span>
+              I'm Olatunji — I've spent 10+ years telling stories through a{' '}
+              <span className="font-bold italic text-[#1e711e]">lens,</span> and the last few building the{' '}
+              <span className="font-bold italic">software</span> that brings those stories to life.
             </h2>
             <div className="mt-8 flex justify-center md:justify-start gap-3 flex-wrap">
               <Link
