@@ -7,7 +7,6 @@ import { motion } from 'framer-motion'
 export default function Home() {
   const [expandedRole, setExpandedRole] = useState<string | null>(null)
   const [dark, setDark] = useState(false)
-  const [logoHover, setLogoHover] = useState(false)
 
   useEffect(() => {
     const saved = localStorage.getItem('darkMode')
@@ -113,26 +112,17 @@ export default function Home() {
       <header className={`sticky top-0 z-50 ${bg} border-b ${hdrBdr} transition-colors duration-300`}>
         <div className="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
 
-          {/* Home / Logo toggle */}
-          <Link
-            href="/"
-            onMouseEnter={() => setLogoHover(true)}
-            onMouseLeave={() => setLogoHover(false)}
-            className="relative h-8 w-32 flex items-center"
-            aria-label="Home"
-          >
-            <span className={`text-2xl font-serif font-bold tracking-tight text-[#1e711e] absolute left-0 transition-opacity duration-200 ${logoHover ? 'opacity-0' : 'opacity-100'}`}>
-              Olatunji
-            </span>
+          {/* Home — Logo only */}
+          <Link href="/" aria-label="Home" className="shrink-0">
             <img
               src="/logo-10.png"
               alt="Olatunji logo"
-              className={`h-8 w-auto absolute left-0 transition-opacity duration-200 ${logoHover ? 'opacity-100' : 'opacity-0'}`}
+              className="h-11 w-auto"
             />
           </Link>
 
           {/* Nav items */}
-          <nav className="flex items-center gap-4 sm:gap-5">
+          <nav className="flex items-center gap-3 sm:gap-5 min-w-0">
             <a
               href="#experience"
               className={`text-[11px] font-bold uppercase tracking-[0.18em] transition-colors ${navText}`}
@@ -166,7 +156,7 @@ export default function Home() {
 
             <a
               href="mailto:tunjidare2@yahoo.com"
-              className="bg-[#1e711e] text-white text-[10px] font-bold uppercase tracking-[0.18em] px-5 py-2.5 rounded-full hover:bg-[#155315] transition-all whitespace-nowrap"
+              className="bg-[#1e711e] text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] px-4 sm:px-5 py-2.5 rounded-full hover:bg-[#155315] transition-all whitespace-nowrap"
             >
               Let's talk
             </a>
