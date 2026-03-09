@@ -9,39 +9,55 @@ export default function Home() {
 
   const roles = [
     {
+      id: 'EventFlowNG',
+      title: 'Full Stack Developer',
+      company: 'EventFlowNG',
+      period: 'Dec 2025 – Mar 2026',
+      description: 'Built EventFlowNG, a SaaS event management platform designed to eliminate common event-day chaos. Developed QR-based guest verification that processes check-ins in under 3 seconds, a precision catering module for exact pre-event meal counts, and a vendor coordination system to replace fragmented WhatsApp-based communication. Built with React, Next.js, and TypeScript.',
+    },
+    {
       id: 'SwaysBank',
       title: 'Backend Engineer',
       company: 'SwaysBankUS',
-      period: 'Dec 2024 - Present',
+      period: 'Dec 2024 – Nov 2025',
       description: 'Built the backend for the banking platform using Node.js. Implemented secure APIs and integrated third-party services to enhance functionality.',
     },
     {
       id: 'WealthRun',
       title: 'Full Stack Developer',
       company: 'WealthRun Official Website',
-      period: '2023 - Present',
+      period: '2023 – Present',
       description: 'Developed and maintained a crypto investment platform for WealthRun using React and Next.js for frontend and Node.js for backend.',
-    }
+    },
   ]
 
   const caseStudies = [
     {
+      title: 'Every great event begins with precision.',
+      tags: ['🚀 Self Project', 'SaaS', 'TypeScript'],
+      imgLeft: '/eventflow-1.jpeg',
+      imgRight: '/eventflow-2.jpeg',
+      href: 'https://eventflowng.vercel.app',
+    },
+    {
       title: 'Crypto investments made easy, reliable and trustworthy for everyone.',
-      tags: ['🚀Shipped product', 'Crypto', 'Investment'],
+      tags: ['🚀 Self Project', 'Crypto', 'Investment'],
       imgLeft: '/1.jpeg',
       imgRight: '/2.jpeg',
+      href: 'https://wealthrun.vercel.app',
     },
     {
       title: 'Easy to use online banking platform, hardcore backend.',
-      tags: ['🚀Shipped product', 'Web Based', 'Finance'],
+      tags: ['Self Project', 'Web Based', 'Finance'],
       imgLeft: '/3.jpeg',
       imgRight: '/4.jpeg',
+      href: 'https://swaysbankonline.vercel.app',
     },
   ]
 
-  const navItemClass = "text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-black transition-colors";
-  const talkBtnClass = "bg-[#1e711e] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-6 py-2.5 rounded-full hover:bg-[#155315] transition-all";
-  const tagClass = "text-[11px] font-medium px-4 py-1.5 bg-white border border-slate-200 rounded-full text-slate-600 select-none shadow-sm";
+  const navItemClass = "text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 hover:text-black transition-colors"
+  const talkBtnClass = "bg-[#1e711e] text-white text-[10px] font-bold uppercase tracking-[0.2em] px-6 py-2.5 rounded-full hover:bg-[#155315] transition-all"
+  const tagClass = "text-[11px] font-medium px-4 py-1.5 bg-white border border-slate-200 rounded-full text-slate-600 select-none shadow-sm"
 
   const PhoneStatusBar = () => (
     <div className="absolute top-0 left-0 w-full px-5 pt-4 flex justify-between items-center z-50 text-[7px] font-bold text-white bg-black/10 backdrop-blur-sm">
@@ -70,21 +86,21 @@ export default function Home() {
       </header>
 
       <main className="max-w-5xl mx-auto px-6 py-12">
-        
+
         {/* Profile / Hero Section */}
         <section className="mb-48 flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
           <div className="relative w-[300px] bg-white p-3 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-slate-100 -rotate-2">
             <div className="aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] bg-slate-100">
-               <img src="/5.JPG" alt="Olatunji" className="w-full h-full object-cover" />
+              <img src="/5.JPG" alt="Olatunji" className="w-full h-full object-cover" />
             </div>
             <div className="mt-5 flex justify-between items-center px-2 pb-1">
               <div>
                 <p className="text-[13px] font-bold text-slate-900 leading-none">@DevTunechi</p>
                 <p className="text-[10px] text-slate-400 mt-1">LinkedIn</p>
               </div>
-              <a 
-                href="https://www.linkedin.com/in/olatunji-oluwadare/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/olatunji-oluwadare/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="bg-black text-white text-[11px] font-bold px-5 py-2.5 rounded-xl flex items-center gap-2 hover:scale-105 transition-transform active:scale-95"
               >
@@ -95,23 +111,25 @@ export default function Home() {
 
           <div className="max-w-md text-center md:text-left">
             <h2 className="text-[26px] md:text-[32px] font-medium leading-[1.4] text-slate-800">
-              I’m Olatunji, an engineer who solves problems by understanding people and turning <span className="font-bold italic text-[#1e711e]">ideas</span> into <span className="font-bold italic">practical solutions.</span>
+              I'm Olatunji, an engineer who solves problems by understanding people and turning{' '}
+              <span className="font-bold italic text-[#1e711e]">ideas</span> into{' '}
+              <span className="font-bold italic">practical solutions.</span>
             </h2>
             <div className="mt-10 flex justify-center md:justify-start gap-4">
-               <Link 
-                href="/resume" 
+              <Link
+                href="/resume"
                 className="px-10 py-3.5 rounded-full border border-slate-200 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-slate-50 transition-colors text-center"
-               >
-                 Resume
-               </Link>
-               <a 
-                href="https://github.com/DevTunechi" 
-                target="_blank" 
+              >
+                Resume
+              </Link>
+              <a
+                href="https://github.com/DevTunechi"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="px-10 py-3.5 rounded-full bg-black text-white text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-slate-800 transition-colors text-center"
-               >
-                 About me
-               </a>
+              >
+                About me
+              </a>
             </div>
           </div>
         </section>
@@ -121,20 +139,35 @@ export default function Home() {
           <h3 className="text-4xl md:text-5xl font-serif text-center mb-24">Selected case studies</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-32">
             {caseStudies.map((study, idx) => (
-              <motion.div 
-                key={idx} 
-                initial="rest" 
-                whileHover="hover" 
+              <motion.a
+                key={idx}
+                href={study.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial="rest"
+                whileHover="hover"
                 animate="rest"
-                className="group relative"
+                className="group relative cursor-pointer"
               >
                 <div className="relative h-[420px] w-full bg-[#f0fdf4] rounded-[2.5rem] border border-[#dcfce7] flex justify-center items-end">
+                  {/* Visit label */}
+                  <motion.div
+                    variants={{
+                      rest: { opacity: 0, scale: 0.8 },
+                      hover: { opacity: 1, scale: 1 },
+                    }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-5 right-5 z-40 bg-black text-white text-[10px] font-bold uppercase tracking-[0.15em] px-4 py-2 rounded-full"
+                  >
+                    Visit site ↗
+                  </motion.div>
+
                   <motion.div
                     variants={{
                       rest: { y: -40, x: 25, rotate: -6, scale: 1 },
-                      hover: { y: -90, x: -45, rotate: -12, scale: 1.05 }
+                      hover: { y: -90, x: -45, rotate: -12, scale: 1.05 },
                     }}
-                    transition={{ type: "spring", stiffness: 120, damping: 20 }}
+                    transition={{ type: 'spring', stiffness: 120, damping: 20 }}
                     className="relative z-30 w-[170px] aspect-[9/19] bg-black rounded-[2.2rem] border-[7px] border-black shadow-2xl overflow-hidden flex flex-col"
                   >
                     <PhoneStatusBar />
@@ -147,9 +180,9 @@ export default function Home() {
                   <motion.div
                     variants={{
                       rest: { y: 30, x: -25, rotate: 6, scale: 1 },
-                      hover: { y: -20, x: 65, rotate: 12, scale: 1.05 }
+                      hover: { y: -20, x: 65, rotate: 12, scale: 1.05 },
                     }}
-                    transition={{ type: "spring", stiffness: 120, damping: 20 }}
+                    transition={{ type: 'spring', stiffness: 120, damping: 20 }}
                     className="relative z-20 w-[170px] aspect-[9/19] bg-black rounded-[2.2rem] border-[7px] border-black shadow-2xl overflow-hidden flex flex-col ml-[-70px]"
                   >
                     <PhoneStatusBar />
@@ -166,12 +199,11 @@ export default function Home() {
                       <span key={i} className={tagClass}>{tag}</span>
                     ))}
                   </div>
-                  {/* Updated Font Size & Removed Underline */}
                   <h4 className="text-lg font-bold leading-[1.3] text-slate-900 transition-colors group-hover:text-[#1e711e]">
                     {study.title}
                   </h4>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
 
@@ -188,7 +220,7 @@ export default function Home() {
           <div className="divide-y divide-slate-100 border-y border-slate-100">
             {roles.map((role) => (
               <div key={role.id} className="py-10">
-                <button 
+                <button
                   onClick={() => setExpandedRole(expandedRole === role.id ? null : role.id)}
                   className="w-full text-left flex justify-between items-baseline group"
                 >
@@ -199,7 +231,7 @@ export default function Home() {
                   <span className="text-2xl font-light text-slate-300">{expandedRole === role.id ? '−' : '+'}</span>
                 </button>
                 {expandedRole === role.id && (
-                  <motion.div 
+                  <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     className="mt-8 text-slate-500 leading-relaxed max-w-2xl text-[15px]"
@@ -217,8 +249,8 @@ export default function Home() {
           <p className="font-serif text-4xl md:text-5xl mb-12 text-slate-900 leading-tight">
             I build meaningful <br /> digital experiences.
           </p>
-          <a 
-            href="mailto:tunjidare2@yahoo.com" 
+          <a
+            href="mailto:tunjidare2@yahoo.com"
             className="inline-block text-[11px] font-bold uppercase tracking-[0.4em] px-12 py-6 border border-black rounded-full hover:bg-[#1e711e] hover:border-[#1e711e] hover:text-white transition-all duration-300"
           >
             Get in touch →
