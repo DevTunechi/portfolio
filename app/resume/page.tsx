@@ -83,8 +83,36 @@ export default function Resume() {
   ]
 
   const certifications = [
-    { name: 'Backend Software Engineering', issuer: 'ALX Africa / Holberton College', year: '2024' },
-    { name: 'Soft Skills Training', issuer: 'Jobberman', year: '2023' },
+    {
+      name: 'AI Starter Kit',
+      issuer: 'ALX Africa',
+      year: 'Mar 2025',
+    },
+    {
+      name: 'Foundations in Specialization',
+      issuer: 'ALX Africa — Professional Development Skills for the Digital Age & Tech Career Specialization',
+      year: 'Feb 2025',
+    },
+    {
+      name: 'Agile Project Management',
+      issuer: 'HP LIFE / HP Foundation',
+      year: 'Feb 2025',
+    },
+    {
+      name: 'Software Engineering — Back-End Specialization (12 Months)',
+      issuer: 'ALX Africa / Holberton Inc',
+      year: 'Nov 2024',
+    },
+    {
+      name: 'File & Folder Management Using PowerShell',
+      issuer: 'Udemy — Luxmi Narayan',
+      year: 'Sep 2023',
+    },
+    {
+      name: 'Soft-Skills Training',
+      issuer: 'Jobberman Nigeria (in partnership with Mastercard Foundation & Young Africa Works)',
+      year: 'Sep 2023',
+    },
     { name: 'Cinematography', issuer: 'Akin Alabi Film Institute', year: '2013' },
     { name: 'CISCO Networking (CCNA)', issuer: 'Karrox Nigeria Limited', year: '2009' },
   ]
