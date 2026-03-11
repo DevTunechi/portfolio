@@ -191,20 +191,35 @@ export default function VideoPage() {
     ? youtubeProductions
     : youtubeProductions.filter(p => p.category === activeCategory)
 
-  const surface  = 'bg-[#111111]'
-  const surface2 = 'bg-[#1a1a1a]'
-  const subtext  = 'text-slate-400'
-  const muted    = 'text-slate-500'
-  const hdrBdr   = 'border-slate-800'
-  const toggleBtn= 'border-slate-700 bg-slate-900 text-yellow-400 hover:bg-slate-800'
+  const bg       = dark ? 'bg-[#0a0a0a]' : 'bg-[#f5f5f0]'
+  const surface  = dark ? 'bg-[#111111]' : 'bg-white'
+  const surface2 = dark ? 'bg-[#1a1a1a]' : 'bg-[#efefea]'
+  const text     = dark ? 'text-white'   : 'text-slate-900'
+  const subtext  = dark ? 'text-slate-400' : 'text-slate-600'
+  const muted    = dark ? 'text-slate-500' : 'text-slate-500'
+  const hdrBdr   = dark ? 'border-slate-800' : 'border-slate-200'
+  const cardBdr  = dark ? 'border-slate-800' : 'border-slate-200'
+  const toggleBtn= dark
+    ? 'border-slate-700 bg-slate-900 text-yellow-400 hover:bg-slate-800'
+    : 'border-slate-300 bg-slate-100 text-slate-600 hover:bg-slate-200'
   const catActive= 'bg-[#1e711e] text-white border-[#1e711e]'
-  const catIdle  = 'border-slate-700 text-slate-400 hover:border-[#1e711e] hover:text-white'
+  const catIdle  = dark
+    ? 'border-slate-700 text-slate-400 hover:border-[#1e711e] hover:text-white'
+    : 'border-slate-300 text-slate-500 hover:border-[#1e711e] hover:text-[#1e711e]'
+  const tagStyle = dark ? 'border-slate-700 text-slate-400' : 'border-slate-300 text-slate-500'
+  const heroTag  = dark ? 'border-slate-700 text-slate-300' : 'border-slate-400 text-slate-600'
+  const statsBg  = dark ? 'bg-[#111111] border-slate-800' : 'bg-white border-slate-200'
+  const footerBdr= dark ? 'border-slate-800' : 'border-slate-200'
+  const footerCta= dark
+    ? 'border-slate-600 text-slate-200 hover:bg-[#1e711e] hover:border-[#1e711e] hover:text-white'
+    : 'border-black text-black hover:bg-[#1e711e] hover:border-[#1e711e] hover:text-white'
+  const footerCopy = dark ? 'text-slate-700' : 'text-slate-400'
 
   return (
-    <div className="min-h-screen font-sans overflow-x-hidden bg-[#0a0a0a] text-white">
+    <div className={`min-h-screen font-sans overflow-x-hidden transition-colors duration-300 ${bg} ${text}`}>
 
       {/* ── Header ── */}
-      <header className={`sticky top-0 z-50 ${surface} border-b ${hdrBdr}`}>
+      <header className={`sticky top-0 z-50 ${surface} border-b ${hdrBdr} transition-colors duration-300`}>
         <div className="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
           <Link href="/" aria-label="Home" className="shrink-0">
             <img src="/logo-10.png" alt="Olatunji logo" className="h-11 w-auto" />
@@ -257,7 +272,7 @@ export default function VideoPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {['Adobe Premiere Pro', 'CapCut', 'Multi-Camera', 'Drone & Aerial', 'Animation', 'Documentary'].map((tag, i) => (
-              <span key={i} className="text-[11px] font-semibold px-4 py-2 border border-slate-700 rounded-full text-slate-300">{tag}</span>
+              <span key={i} className={`text-[11px] font-semibold px-4 py-2 border rounded-full ${heroTag}`}>{tag}</span>
             ))}
           </div>
         </section>
@@ -288,7 +303,7 @@ export default function VideoPage() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.04 }}
-                className={`rounded-[1.5rem] overflow-hidden border border-slate-800 ${surface2}`}
+                className={`rounded-[1.5rem] overflow-hidden border ${cardBdr} ${surface2}`}
               >
                 {activeVideo === prod.videoId ? (
                   <div className="w-full aspect-video">
@@ -309,7 +324,7 @@ export default function VideoPage() {
                 <div className="p-5">
                   <div className="flex flex-wrap gap-2 mb-3">
                     {prod.tags.map((tag, i) => (
-                      <span key={i} className="text-[9px] font-bold uppercase tracking-[0.12em] px-2.5 py-1 rounded-full border border-slate-700 text-slate-400">{tag}</span>
+                      <span key={i} className={`text-[9px] font-bold uppercase tracking-[0.12em] px-2.5 py-1 rounded-full border ${tagStyle}`}>{tag}</span>
                     ))}
                   </div>
                   <h3 className="text-[16px] font-bold text-white mb-1">{prod.title}</h3>
@@ -324,7 +339,7 @@ export default function VideoPage() {
         {/* ── Instagram Events Section ── */}
         <section className="mb-24">
           {/* Section header with Klala credit */}
-          <div className={`rounded-[1.5rem] border border-slate-800 ${surface} p-6 md:p-8 mb-8`}>
+          <div className={`rounded-[1.5rem] border ${cardBdr} ${surface} p-6 md:p-8 mb-8`}>
             <div className="flex items-start justify-between flex-wrap gap-4">
               <div>
                 <div className="flex items-center gap-3 mb-2">
@@ -340,7 +355,7 @@ export default function VideoPage() {
                   A selection of live event productions shot and edited as part of my role as
                   Lead Videographer at{' '}
                   <a
-                    href="https://www.instagram.com/klalafilmsandpictures/"
+                    href="https://www.instagram.com/klalaphotography?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#4caf50] font-semibold hover:underline"
@@ -369,7 +384,7 @@ export default function VideoPage() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className={`group rounded-[1.2rem] overflow-hidden border border-slate-800 ${surface2} block hover:border-[#1e711e]/50 transition-all`}
+                className={`group rounded-[1.2rem] overflow-hidden border ${cardBdr} ${surface2} block hover:border-[#1e711e]/50 transition-all`}
               >
                 {/* Instagram gradient placeholder with play icon */}
                 <div className="relative w-full aspect-[4/5] bg-gradient-to-br from-purple-900 via-pink-900 to-orange-700 flex flex-col items-center justify-center gap-3">
@@ -399,7 +414,7 @@ export default function VideoPage() {
         </section>
 
         {/* ── Stats ── */}
-        <section className={`mb-20 rounded-[2rem] border border-slate-800 ${surface} p-8 md:p-12`}>
+        <section className={`mb-20 rounded-[2rem] border ${statsBg} p-8 md:p-12`}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { number: '10+', label: 'Years Experience' },
@@ -416,19 +431,19 @@ export default function VideoPage() {
         </section>
 
         {/* ── Footer ── */}
-        <footer className="text-center py-16 border-t border-slate-800">
-          <p className="font-serif text-3xl md:text-4xl mb-4 leading-tight text-white">
+        <footer className={`text-center py-16 border-t ${footerBdr}`}>
+          <p className={`font-serif text-3xl md:text-4xl mb-4 leading-tight ${text}`}>
             Let's make something<br />
             <span className="italic text-[#1e711e]">worth watching.</span>
           </p>
           <p className={`text-[13px] mb-10 ${muted}`}>Available for freelance · Remote · Lagos, Nigeria</p>
           <a
             href="mailto:tunjidare2@yahoo.com"
-            className="inline-block text-[11px] font-bold uppercase tracking-[0.4em] px-10 py-5 border border-slate-600 text-slate-200 rounded-full hover:bg-[#1e711e] hover:border-[#1e711e] hover:text-white transition-all duration-300"
+            className={`inline-block text-[11px] font-bold uppercase tracking-[0.4em] px-10 py-5 border rounded-full transition-all duration-300 ${footerCta}`}
           >
             Get in touch →
           </a>
-          <p className="text-[10px] text-slate-700 font-bold uppercase tracking-[0.2em] mt-14">
+          <p className={`text-[10px] font-bold uppercase tracking-[0.2em] mt-14 ${footerCopy}`}>
             © {new Date().getFullYear()} Olatunji Studio — Based in Lagos
           </p>
         </footer>

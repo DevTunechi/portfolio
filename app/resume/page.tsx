@@ -33,6 +33,15 @@ export default function Resume() {
       ],
     },
     {
+      title: 'Full Stack Developer',
+      company: 'LuxPropyl',
+      period: '2025',
+      points: [
+        'Built LuxPropyl, a SaaS property management platform reimagined for African landlords.',
+        'Developed tenant management, rent tracking, and property oversight tools in a single unified platform.',
+      ],
+    },
+    {
       title: 'Backend Engineer',
       company: 'SwaysBankUS',
       period: 'Dec 2024 – Nov 2025',
