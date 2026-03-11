@@ -53,7 +53,7 @@ export default function Home() {
       description: 'Built EventFlowNG, a SaaS event management platform designed to eliminate common event-day chaos. Developed QR-based guest verification that processes check-ins in under 3 seconds, a precision catering module for exact pre-event meal counts, and a vendor coordination system to replace fragmented WhatsApp-based communication. Built with React, Next.js, and TypeScript.',
     },
     {
-      id: 'LuxPropyl',
+      id: 'LuxProptyl',
       title: 'Full Stack Developer',
       company: 'LuxPropyl',
       period: '2025',
@@ -88,7 +88,7 @@ export default function Home() {
       tags: ['🚀 Self Project', 'SaaS', 'Real Estate'],
       imgLeft: '/lux1.jpeg',
       imgRight: '/lux2.jpeg',
-      href: 'https://luxpropyl.vercel.app',
+      href: 'https://luxproptyl.vercel.app',
     },
     {
       title: 'Crypto investments made easy, reliable and trustworthy for everyone.',
