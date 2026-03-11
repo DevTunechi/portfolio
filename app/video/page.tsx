@@ -330,7 +330,7 @@ export default function VideoPage() {
           {/* Profile card — same style as engineering page */}
           <div className={`relative w-[260px] sm:w-[280px] p-3 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.14)] border shrink-0 -rotate-2 transition-colors duration-300 ${dark ? 'bg-[#1a1a1a] border-slate-700' : 'bg-white border-slate-200'}`}>
             <div className="aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] bg-slate-800">
-              <img src="/5.JPG" alt="Olatunji" className="w-full h-full object-cover" />
+              <img src="/video.JPG" alt="Olatunji" className="w-full h-full object-cover" />
             </div>
             <div className="mt-4 flex justify-between items-center px-2 pb-1">
               <div>
