@@ -21,11 +21,11 @@ const youtubeProductions = [
     tags: ['Wedding', 'Montage'],
   },
   {
-     title: 'Animated Birthday Wish Picture Slideshow',
+    title: 'Olatunji Martins — Showreel',
     category: 'Brand / Service',
-    description: 'A visual narrative of creative direction work — concept to screen, across events, brands and documentary.',
-    videoId: '9LNus6YFcbo',
-    tags: ['Creative Direction', 'Reel'],
+    description: 'A curated showreel of cinematic work — direction, shooting and editing across multiple genres and formats.',
+    videoId: '8k6q67pNqNI',
+    tags: ['Showreel', 'Direction'],
   },
   {
     title: 'Prodigy Simplicity Fashion Shoot',
@@ -35,11 +35,11 @@ const youtubeProductions = [
     tags: ['Fashion', 'Editorial'],
   },
   {
-    title: 'Late Mrs Scholastic — Burial Documentary',
+    title: 'Creative Direction Reel',
     category: 'Brand / Service',
-    description: 'A curated showreel of cinematic work — direction, shooting and editing across multiple genres and formats.',
-    videoId: '8k6q67pNqNI',
-    tags: ['Showreel', 'Direction'],
+    description: 'A visual narrative of creative direction work — concept to screen, across events, brands and documentary.',
+    videoId: '9LNus6YFcbo',
+    tags: ['Creative Direction', 'Reel'],
   },
   {
     title: 'Olat Farms — Animated Advert',
@@ -325,25 +325,52 @@ export default function VideoPage() {
       <main className="max-w-6xl mx-auto px-5 py-12">
 
         {/* ── Hero ── */}
-        <section className="mb-16 pt-4">
-          <p className={`text-[11px] font-bold uppercase tracking-[0.3em] mb-5 ${muted}`}>
-            Cinematographer &amp; Video Editor · Lagos, Nigeria
-          </p>
-          <p className={`text-[13px] font-semibold mb-4 ${dark ? 'text-slate-300' : 'text-slate-600'}`}>
-            ⚠️ This page is 100% addictive 😍
-          </p>
-          <h1 className={`text-5xl md:text-7xl font-serif leading-[1.1] mb-8 max-w-4xl ${text}`}>
-            Stories that <span className="italic text-[#1e711e]">move</span><br />people.
-          </h1>
-          <p className={`text-[16px] leading-[1.75] max-w-2xl ${subtext}`}>
-            10+ years directing, shooting and editing video across weddings, documentaries,
-            brand films, animations and live events. Every frame is intentional.
-            Every cut serves the story.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {['Adobe Premiere Pro', 'CapCut', 'Multi-Camera', 'Drone & Aerial', 'Animation', 'Documentary'].map((tag, i) => (
-              <span key={i} className={`text-[11px] font-semibold px-4 py-2 border rounded-full ${heroTag}`}>{tag}</span>
-            ))}
+        <section className="mb-16 pt-4 flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20">
+
+          {/* Profile card — same style as engineering page */}
+          <div className={`relative w-[260px] sm:w-[280px] p-3 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.14)] border shrink-0 -rotate-2 transition-colors duration-300 ${dark ? 'bg-[#1a1a1a] border-slate-700' : 'bg-white border-slate-200'}`}>
+            <div className="aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] bg-slate-800">
+              <img src="/5.JPG" alt="Olatunji" className="w-full h-full object-cover" />
+            </div>
+            <div className="mt-4 flex justify-between items-center px-2 pb-1">
+              <div>
+                <p className={`text-[13px] font-bold leading-none ${text}`}>@latunechient</p>
+                <p className="text-[11px] text-slate-400 mt-1">Instagram</p>
+              </div>
+              <a
+                href="https://www.instagram.com/kingtunechiz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-[11px] font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 hover:scale-105 transition-transform active:scale-95"
+                style={{ background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)' }}
+              >
+                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                Follow
+              </a>
+            </div>
+          </div>
+
+          {/* Bio */}
+          <div className="max-w-md text-center md:text-left">
+            <p className={`text-[11px] font-bold uppercase tracking-[0.3em] mb-4 ${muted}`}>
+              Cinematographer &amp; Video Editor · Lagos, Nigeria
+            </p>
+            <p className={`text-[13px] font-semibold mb-5 ${dark ? 'text-slate-300' : 'text-slate-600'}`}>
+              ⚠️ This page is 100% addictive 😍
+            </p>
+            <h2 className={`text-[23px] md:text-[29px] font-medium leading-[1.7] ${text}`}>
+              I'm Olatunji — a cinematographer who believes{' '}
+              <span className="font-bold italic text-[#1e711e]">every story deserves to be told well.</span>{' '}
+              Not just recorded.{' '}
+              <span className="font-bold italic">Crafted, paced, and felt.</span>
+            </h2>
+            <div className="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
+              {['Adobe Premiere Pro', 'CapCut', 'Multi-Camera', 'Drone & Aerial', 'Animation', 'Documentary'].map((tag, i) => (
+                <span key={i} className={`text-[11px] font-semibold px-4 py-2 border rounded-full ${dark ? 'border-slate-700 text-slate-300' : 'border-slate-400 text-slate-600'}`}>{tag}</span>
+              ))}
+            </div>
           </div>
         </section>
 

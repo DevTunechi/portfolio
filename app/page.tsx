@@ -285,10 +285,12 @@ export default function Home() {
           </div>
 
           <div className="max-w-md text-center md:text-left">
-            <h2 className={`text-[23px] md:text-[29px] font-medium leading-[1.5] ${text}`}>
-              I'm Olatunji — I've spent 10+ years telling stories through a{' '}
-              <span className="font-bold italic text-[#1e711e]">lens,</span> and the last few building the{' '}
-              <span className="font-bold italic">software</span> that brings those stories to life.
+            <h2 className={`text-[23px] md:text-[29px] font-medium leading-[1.7] ${text}`}>
+              I'm Olatunji. I write code with intention —{' '}
+              <span className="font-bold italic text-[#1e711e]">no bloated stacks,</span>{' '}
+              no shortcuts on security, no shipping what I wouldn't use myself.{' '}
+              <span className="font-bold italic">Engineering is a craft.</span>{' '}
+              I take it seriously.
             </h2>
             <div className="mt-8 flex justify-center md:justify-start gap-3 flex-wrap">
               <Link href="/resume" className={`px-8 py-3 rounded-full border text-[11px] font-bold uppercase tracking-[0.15em] transition-colors ${resumeBtn}`}>
@@ -367,11 +369,22 @@ export default function Home() {
                       <h4 className={`text-[15px] font-bold leading-[1.45] transition-colors group-hover:text-[#1e711e] ${text}`}>
                         {study.title}
                       </h4>
-                      <span className={`shrink-0 text-xl font-light mt-0.5 transition-transform duration-300 ${expandedStudy === study.id ? 'rotate-45' : ''} ${expandIcon}`}>+</span>
                     </div>
-                    <p className={`text-[11px] mt-1.5 font-semibold uppercase tracking-[0.12em] ${expandedStudy === study.id ? 'text-[#1e711e]' : 'text-slate-400'}`}>
-                      {expandedStudy === study.id ? 'Hide case study −' : 'Read case study →'}
-                    </p>
+                    <button
+                      className={`mt-4 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-200 ${
+                        expandedStudy === study.id
+                          ? 'bg-[#1e711e] border-[#1e711e] text-white'
+                          : dark
+                            ? 'border-slate-600 text-slate-200 hover:bg-[#1e711e] hover:border-[#1e711e] hover:text-white'
+                            : 'border-slate-800 text-slate-800 hover:bg-[#1e711e] hover:border-[#1e711e] hover:text-white'
+                      }`}
+                    >
+                      {expandedStudy === study.id ? (
+                        <>Hide case study <span className="text-base leading-none">−</span></>
+                      ) : (
+                        <>Read case study <span className="text-base leading-none">→</span></>
+                      )}
+                    </button>
                   </div>
                 </motion.div>
 
