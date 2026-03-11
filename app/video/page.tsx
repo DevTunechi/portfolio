@@ -81,39 +81,33 @@ const youtubeProductions = [
 const instagramEvents = [
   {
     title: 'Studio Video & Photo Shoot',
-    description: 'Studio production — controlled lighting, camera direction and creative visual identity work.',
-    url: 'https://www.instagram.com/reel/DTRKr7rCDiO/',
     reelId: 'DTRKr7rCDiO',
+    embedHtml: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DTRKr7rCDiO/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:calc(100% - 2px);"></blockquote>`,
   },
   {
     title: 'Family Celebration Shoot',
-    description: 'Joyful family celebration — warm, intimate coverage capturing genuine moments.',
-    url: 'https://www.instagram.com/reel/DTSb4d-jD-v/',
     reelId: 'DTSb4d-jD-v',
+    embedHtml: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DTSb4d-jD-v/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:calc(100% - 2px);"></blockquote>`,
   },
   {
-    title: 'An Unveiling Fit for Royalty',
-    description: 'The King and Queen crowned in love — a regal union captured with cinematic elegance.',
-    url: 'https://www.instagram.com/reel/DS2qokcjMu0/',
+    title: 'An Unveiling Fit For Royalty',
     reelId: 'DS2qokcjMu0',
+    embedHtml: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DS2qokcjMu0/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:calc(100% - 2px);"></blockquote>`,
   },
   {
-    title: 'A Union Blessed by Culture & History',
-    description: 'Love beautifully wrapped in centuries of tradition — rich cultural event coverage.',
-    url: 'https://www.instagram.com/reel/DSmVm7hDHdN/',
+    title: 'A Union Blessed By Culture & History',
     reelId: 'DSmVm7hDHdN',
+    embedHtml: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DSmVm7hDHdN/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:calc(100% - 2px);"></blockquote>`,
   },
   {
-    title: 'She Ministers Heaven',
-    description: 'A life fully devoted to God — spiritual performance coverage, sensitively and reverently shot.',
-    url: 'https://www.instagram.com/reel/DSPa8F0kYRe/',
+    title: 'She Ministers Heaven — Dr. AjokeSings',
     reelId: 'DSPa8F0kYRe',
+    embedHtml: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DSPa8F0kYRe/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:calc(100% - 2px);"></blockquote>`,
   },
   {
     title: 'Celebrating Music Icons — Adeyinka Alaseyori',
-    description: 'Honouring music legends 60+ whose timeless sounds shaped lives — a milestone event beautifully documented.',
-    url: 'https://www.instagram.com/reel/DNoM0avROIJ/',
     reelId: 'DNoM0avROIJ',
+    embedHtml: `<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DNoM0avROIJ/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:calc(100% - 2px);"></blockquote>`,
   },
 ]
 
@@ -184,6 +178,24 @@ export default function VideoPage() {
     if (dark) document.documentElement.classList.add('dark')
     else document.documentElement.classList.remove('dark')
   }, [dark])
+
+  // Load Instagram embed script and process blockquotes
+  useEffect(() => {
+    const loadIG = () => {
+      if ((window as any).instgrm) {
+        (window as any).instgrm.Embeds.process()
+        return
+      }
+      const script = document.createElement('script')
+      script.src = 'https://www.instagram.com/embed.js'
+      script.async = true
+      script.onload = () => {
+        if ((window as any).instgrm) (window as any).instgrm.Embeds.process()
+      }
+      document.body.appendChild(script)
+    }
+    loadIG()
+  }, [])
 
   const categories = ['All', 'Wedding Film', 'Documentary Series', 'Brand / Service', 'Fashion / Editorial', 'Animation / Commercial', 'Animation']
 
@@ -262,7 +274,7 @@ export default function VideoPage() {
           <p className={`text-[11px] font-bold uppercase tracking-[0.3em] mb-5 ${muted}`}>
             Cinematographer &amp; Video Editor · Lagos, Nigeria
           </p>
-          <h1 className="text-5xl md:text-7xl font-serif leading-[1.1] mb-8 max-w-4xl">
+          <h1 className={`text-5xl md:text-7xl font-serif leading-[1.1] mb-8 max-w-4xl ${text}`}>
             Stories that <span className="italic text-[#1e711e]">move</span><br />people.
           </h1>
           <p className={`text-[16px] leading-[1.75] max-w-2xl ${subtext}`}>
@@ -280,7 +292,7 @@ export default function VideoPage() {
         {/* ── YouTube Productions ── */}
         <section className="mb-24">
           <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
-            <h2 className="text-2xl font-serif text-white">Productions</h2>
+            <h2 className={`text-2xl font-serif ${text}`}>Productions</h2>
           </div>
 
           {/* Category filter */}
@@ -327,7 +339,7 @@ export default function VideoPage() {
                       <span key={i} className={`text-[9px] font-bold uppercase tracking-[0.12em] px-2.5 py-1 rounded-full border ${tagStyle}`}>{tag}</span>
                     ))}
                   </div>
-                  <h3 className="text-[16px] font-bold text-white mb-1">{prod.title}</h3>
+                  <h3 className={`text-[16px] font-bold mb-1 ${text}`}>{prod.title}</h3>
                   <p className="text-[11px] text-[#4caf50] font-semibold mb-2">{prod.category}</p>
                   <p className={`text-[13px] leading-[1.65] ${subtext}`}>{prod.description}</p>
                 </div>
@@ -350,7 +362,7 @@ export default function VideoPage() {
                     Instagram
                   </span>
                 </div>
-                <h2 className="text-2xl font-serif text-white mb-2">Event Coverage</h2>
+                <h2 className={`text-2xl font-serif mb-2 ${text}`}>Event Coverage</h2>
                 <p className={`text-[13px] leading-relaxed max-w-xl ${subtext}`}>
                   A selection of live event productions shot and edited as part of my role as
                   Lead Videographer at{' '}
@@ -373,42 +385,30 @@ export default function VideoPage() {
             </div>
           </div>
 
-          {/* Instagram grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {/* Instagram embeds grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {instagramEvents.map((event, idx) => (
-              <motion.a
+              <motion.div
                 key={event.reelId}
-                href={event.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className={`group rounded-[1.2rem] overflow-hidden border ${cardBdr} ${surface2} block hover:border-[#1e711e]/50 transition-all`}
+                className="flex flex-col gap-3"
               >
-                {/* Instagram gradient placeholder with play icon */}
-                <div className="relative w-full aspect-[4/5] bg-gradient-to-br from-purple-900 via-pink-900 to-orange-700 flex flex-col items-center justify-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <svg className="w-6 h-6 text-white/80" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                  <div className="absolute top-3 right-3">
-                    <svg className="w-5 h-5 text-white/60" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                  </div>
-                  <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.15em]">Watch on Instagram ↗</span>
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center gap-2 mb-2">
+                {/* Instagram embed blockquote */}
+                <div
+                  className="w-full overflow-hidden rounded-[1.2rem]"
+                  dangerouslySetInnerHTML={{ __html: event.embedHtml }}
+                />
+                {/* Title + meta below embed */}
+                <div className="px-1">
+                  <div className="flex items-center gap-2 mb-1">
                     <span className="text-[9px] font-bold uppercase tracking-[0.12em] px-2 py-0.5 rounded-full bg-[#1e711e]/20 text-[#4caf50] border border-[#1e711e]/20">Event</span>
                     <span className={`text-[9px] font-semibold ${muted}`}>Klala Films</span>
                   </div>
-                  <h3 className="text-[14px] font-bold text-white mb-1 leading-snug">{event.title}</h3>
-                  <p className={`text-[12px] leading-[1.6] ${subtext}`}>{event.description}</p>
+                  <h3 className={`text-[14px] font-bold leading-snug ${text}`}>{event.title}</h3>
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -418,7 +418,7 @@ export default function VideoPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { number: '10+', label: 'Years Experience' },
-              { number: '16+', label: 'Productions' },
+              { number: '50+', label: 'Productions' },
               { number: '8', label: 'Crew Members Led' },
               { number: '6', label: 'Live Events Shot' },
             ].map((stat, i) => (
