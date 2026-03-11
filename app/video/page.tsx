@@ -334,7 +334,7 @@ export default function VideoPage() {
             </div>
             <div className="mt-4 flex justify-between items-center px-2 pb-1">
               <div>
-                <p className={`text-[13px] font-bold leading-none ${text}`}>@latunechient</p>
+                <p className={`text-[13px] font-bold leading-none ${text}`}>@kingtunechiz</p>
                 <p className="text-[11px] text-slate-400 mt-1">Instagram</p>
               </div>
               <a
@@ -355,16 +355,16 @@ export default function VideoPage() {
           {/* Bio */}
           <div className="max-w-md text-center md:text-left">
             <p className={`text-[11px] font-bold uppercase tracking-[0.3em] mb-4 ${muted}`}>
-              Cinematographer &amp; Video Editor · Lagos, Nigeria
+              Cinematographer &amp; Video Editor · Lagos, 🇳🇬
             </p>
             <p className={`text-[13px] font-semibold mb-5 ${dark ? 'text-slate-300' : 'text-slate-600'}`}>
               ⚠️ This page is 100% addictive 😍
             </p>
             <h2 className={`text-[23px] md:text-[29px] font-medium leading-[1.7] ${text}`}>
-              I'm Olatunji — a cinematographer who believes{' '}
+              I'm Olatunji, a cinematographer who believes{' '}
               <span className="font-bold italic text-[#1e711e]">every story deserves to be told well.</span>{' '}
               Not just recorded.{' '}
-              <span className="font-bold italic">Crafted, paced, and felt.</span>
+              <span className="font-bold italic">Crafted, Paced, and Felt.</span>
             </h2>
             <div className="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
               {['Adobe Premiere Pro', 'CapCut', 'Multi-Camera', 'Drone & Aerial', 'Animation', 'Documentary'].map((tag, i) => (

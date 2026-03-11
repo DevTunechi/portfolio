@@ -286,10 +286,10 @@ export default function Home() {
 
           <div className="max-w-md text-center md:text-left">
             <h2 className={`text-[23px] md:text-[29px] font-medium leading-[1.7] ${text}`}>
-              I'm Olatunji. I write code with intention —{' '}
+              I'm Olatunji. I write code with intention,{' '}
               <span className="font-bold italic text-[#1e711e]">no bloated stacks,</span>{' '}
-              no shortcuts on security, no shipping what I wouldn't use myself.{' '}
-              <span className="font-bold italic">Engineering is a craft.</span>{' '}
+              no shortcuts on security, building for users.{' '}
+              <span className="font-bold italic">Engineering is a craft and,</span>{' '}
               I take it seriously.
             </h2>
             <div className="mt-8 flex justify-center md:justify-start gap-3 flex-wrap">
