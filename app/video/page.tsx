@@ -21,11 +21,25 @@ const youtubeProductions = [
     tags: ['Wedding', 'Montage'],
   },
   {
+    title: 'Olatunji Martins — Showreel',
+    category: 'Brand / Service',
+    description: 'A curated showreel of cinematic work — direction, shooting and editing across multiple genres and formats.',
+    videoId: '8k6q67pNqNI',
+    tags: ['Showreel', 'Direction'],
+  },
+  {
     title: 'Prodigy Simplicity Fashion Shoot',
     category: 'Fashion / Editorial',
     description: 'Fashion film for Prodigy Simplicity — clean aesthetics, strong visual direction and editorial pacing.',
     videoId: '2arZb-QlvVg',
     tags: ['Fashion', 'Editorial'],
+  },
+  {
+    title: 'Creative Direction Reel',
+    category: 'Brand / Service',
+    description: 'A visual narrative of creative direction work — concept to screen, across events, brands and documentary.',
+    videoId: '9LNus6YFcbo',
+    tags: ['Creative Direction', 'Reel'],
   },
   {
     title: 'Olat Farms — Animated Advert',
@@ -237,7 +251,6 @@ export default function VideoPage() {
             <img src="/logo-10.png" alt="Olatunji logo" className="h-11 w-auto" />
           </Link>
           <nav className="flex items-center gap-3 sm:gap-4 min-w-0">
-            <ProfileToggle active="video" />
             <Link href="/resume" className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-400 hover:text-white transition-colors hidden sm:block">
               Resume
             </Link>
@@ -273,6 +286,9 @@ export default function VideoPage() {
         <section className="mb-16 pt-4">
           <p className={`text-[11px] font-bold uppercase tracking-[0.3em] mb-5 ${muted}`}>
             Cinematographer &amp; Video Editor · Lagos, Nigeria
+          </p>
+          <p className={`text-[13px] font-semibold mb-4 ${dark ? 'text-slate-300' : 'text-slate-600'}`}>
+            ⚠️ This page is 100% addictive 😍
           </p>
           <h1 className={`text-5xl md:text-7xl font-serif leading-[1.1] mb-8 max-w-4xl ${text}`}>
             Stories that <span className="italic text-[#1e711e]">move</span><br />people.
@@ -420,7 +436,7 @@ export default function VideoPage() {
               { number: '10+', label: 'Years Experience' },
               { number: '50+', label: 'Productions' },
               { number: '8', label: 'Crew Members Led' },
-              { number: '6', label: 'Live Events Shot' },
+              { number: '30+', label: 'Live Events Shot' },
             ].map((stat, i) => (
               <div key={i}>
                 <p className="text-4xl md:text-5xl font-serif text-[#1e711e] mb-2">{stat.number}</p>
