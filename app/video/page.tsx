@@ -21,11 +21,11 @@ const youtubeProductions = [
     tags: ['Wedding', 'Montage'],
   },
   {
-    title: 'Olatunji Martins — Showreel',
+    title: 'Mrs Olubunmi Birthday',
     category: 'Brand / Service',
-    description: 'A curated showreel of cinematic work — direction, shooting and editing across multiple genres and formats.',
-    videoId: '8k6q67pNqNI',
-    tags: ['Showreel', 'Direction'],
+    description: 'Animated Pitures Slides',
+    videoId: '9LNus6YFcbo',
+    tags: ['Creative Direction', 'Reel'],
   },
   {
     title: 'Prodigy Simplicity Fashion Shoot',
@@ -35,11 +35,11 @@ const youtubeProductions = [
     tags: ['Fashion', 'Editorial'],
   },
   {
-    title: 'Creative Direction Reel',
+    title: 'Late Mrs Scholasticah - Burial Interview',
     category: 'Brand / Service',
-    description: 'A visual narrative of creative direction work — concept to screen, across events, brands and documentary.',
-    videoId: '9LNus6YFcbo',
-    tags: ['Creative Direction', 'Reel'],
+    description: 'A curated showreel of cinematic work — direction, shooting and editing across multiple genres and formats.',
+    videoId: '8k6q67pNqNI',
+    tags: ['Showreel', 'Direction'],
   },
   {
     title: 'Olat Farms — Animated Advert',
