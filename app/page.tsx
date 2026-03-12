@@ -203,7 +203,7 @@ export default function Home() {
           </Link>
           <nav className="flex items-center gap-3 sm:gap-4 min-w-0">
             <a href="#work" className={`text-[11px] font-bold uppercase tracking-[0.18em] transition-colors hidden sm:block ${navText}`}>Work</a>
-            <Link href="/resume" className={`text-[11px] font-bold uppercase tracking-[0.18em] transition-colors hidden sm:block ${navText}`}>Resume</Link>
+            <Link href="/resume" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#1e711e]">Resume</Link>
             <button
               onClick={() => setDark(!dark)}
               aria-label="Toggle dark mode"
@@ -286,10 +286,10 @@ export default function Home() {
 
           <div className="max-w-md text-center md:text-left">
             <h2 className={`text-[23px] md:text-[29px] font-medium leading-[1.7] ${text}`}>
-              I'm Olatunji. I write code with intention,{' '}
+              I'm Olatunji. I write code with intention —{' '}
               <span className="font-bold italic text-[#1e711e]">no bloated stacks,</span>{' '}
-              no shortcuts on security, building for users.{' '}
-              <span className="font-bold italic">Engineering is a craft and,</span>{' '}
+              no shortcuts on security, no shipping what I wouldn't use myself.{' '}
+              <span className="font-bold italic">Engineering is a craft.</span>{' '}
               I take it seriously.
             </h2>
             <div className="mt-8 flex justify-center md:justify-start gap-3 flex-wrap">
