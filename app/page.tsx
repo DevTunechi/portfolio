@@ -286,7 +286,7 @@ export default function Home() {
 
           <div className="max-w-md text-center md:text-left">
             <h2 className={`text-[23px] md:text-[29px] font-medium leading-[1.7] ${text}`}>
-              I'm Olatunji. I write code with intention —{' '}
+              I'm Olatunji. I code with intention, {' '}
               <span className="font-bold italic text-[#1e711e]">no bloated stacks,</span>{' '}
               no shortcuts on security, user first problem solving.{' '}
               <span className="font-bold italic">Engineering is a craft.</span>{' '}
