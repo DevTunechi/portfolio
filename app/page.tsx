@@ -7,13 +7,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 // ── Your self-assessed proficiency scores (sorted shortest → longest name) ───
 const STACK: { name: string; score: number; color: string; bg: string }[] = [
   { name: 'C',              score: 56,    color: '#555555', bg: 'rgba(85,85,85,0.12)'     },
-  { name: 'CSS',            score: 38,    color: '#563d7c', bg: 'rgba(86,61,124,0.12)'    },
-  { name: 'PHP Laravel',    score: 27,    color: '#8892be', bg: 'rgba(136,146,190,0.12)'  },
-  { name: 'HTML',           score: 45,    color: '#e34c26', bg: 'rgba(227,76,38,0.12)'    },
+  { name: 'CSS',            score: 68,    color: '#563d7c', bg: 'rgba(86,61,124,0.12)'    },
+  { name: 'PHP Laravel',    score: 47,    color: '#8892be', bg: 'rgba(136,146,190,0.12)'  },
+  { name: 'HTML',           score: 55,    color: '#e34c26', bg: 'rgba(227,76,38,0.12)'    },
   { name: 'Python',         score: 88,    color: '#3572A5', bg: 'rgba(53,114,165,0.12)'   },
   { name: 'JavaScript',     score: 76.88, color: '#f1e05a', bg: 'rgba(241,224,90,0.15)'   },
   { name: 'PostgreSQL',     score: 73,    color: '#336791', bg: 'rgba(51,103,145,0.12)'   },
-  { name: 'TypeScript',     score: 49.25, color: '#3178c6', bg: 'rgba(49,120,198,0.12)'   },
+  { name: 'TypeScript',     score: 69.25, color: '#3178c6', bg: 'rgba(49,120,198,0.12)'   },
   { name: 'Prisma Schema',  score: 85,    color: '#0c344b', bg: 'rgba(12,52,75,0.15)'     },
 ]
 
