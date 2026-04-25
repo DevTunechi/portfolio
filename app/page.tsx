@@ -7,13 +7,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 // ── Your self-assessed proficiency scores (sorted shortest → longest name) ───
 const STACK: { name: string; score: number; color: string; bg: string }[] = [
   { name: 'C',              score: 56,    color: '#555555', bg: 'rgba(85,85,85,0.12)'     },
-  { name: 'CSS',            score: 68,    color: '#563d7c', bg: 'rgba(86,61,124,0.12)'    },
-  { name: 'PHP Laravel',    score: 47,    color: '#8892be', bg: 'rgba(136,146,190,0.12)'  },
-  { name: 'HTML',           score: 55,    color: '#e34c26', bg: 'rgba(227,76,38,0.12)'    },
+  { name: 'CSS',            score: 38,    color: '#563d7c', bg: 'rgba(86,61,124,0.12)'    },
+  { name: 'PHP Laravel',    score: 27,    color: '#8892be', bg: 'rgba(136,146,190,0.12)'  },
+  { name: 'HTML',           score: 45,    color: '#e34c26', bg: 'rgba(227,76,38,0.12)'    },
   { name: 'Python',         score: 88,    color: '#3572A5', bg: 'rgba(53,114,165,0.12)'   },
   { name: 'JavaScript',     score: 76.88, color: '#f1e05a', bg: 'rgba(241,224,90,0.15)'   },
   { name: 'PostgreSQL',     score: 73,    color: '#336791', bg: 'rgba(51,103,145,0.12)'   },
-  { name: 'TypeScript',     score: 69.25, color: '#3178c6', bg: 'rgba(49,120,198,0.12)'   },
+  { name: 'TypeScript',     score: 49.25, color: '#3178c6', bg: 'rgba(49,120,198,0.12)'   },
   { name: 'Prisma Schema',  score: 85,    color: '#0c344b', bg: 'rgba(12,52,75,0.15)'     },
 ]
 
@@ -24,6 +24,14 @@ function getLevelLabel(score: number): { label: string; color: string; dots: num
   return              { label: 'Beginner',      color: '#94a3b8', dots: 1 }
 }
 
+
+function getLevelLabel(score: number): { label: string; color: string } {
+  if (score >= 80) return { label: 'Expert',       color: '#1e711e' }
+  if (score >= 60) return { label: 'Advanced',     color: '#3178c6' }
+  if (score >= 40) return { label: 'Intermediate', color: '#f59e0b' }
+  return              { label: 'Beginner',      color: '#94a3b8' }
+}
+
 function TechStack({ dark }: { dark: boolean }) {
   const [animated, setAnimated] = useState(false)
 
@@ -32,13 +40,16 @@ function TechStack({ dark }: { dark: boolean }) {
     return () => clearTimeout(t)
   }, [])
 
-  const muted   = dark ? 'text-slate-400' : 'text-slate-500'
-  const barBg   = dark ? 'bg-slate-800'   : 'bg-slate-200'
-  const textCol = dark ? 'text-white'     : 'text-slate-900'
+  const muted     = dark ? 'text-slate-500'  : 'text-slate-400'
+  const barBg     = dark ? 'bg-slate-800'    : 'bg-slate-100'
+  const textCol   = dark ? 'text-slate-100'  : 'text-slate-800'
+  const rowHover  = dark ? 'hover:bg-white/[0.03]' : 'hover:bg-slate-50'
+  const divider   = dark ? 'border-slate-800' : 'border-slate-100'
 
   return (
     <section className="mb-20">
-      <div className="flex items-end justify-between mb-10">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
         <h3 className={`text-[11px] uppercase tracking-[0.22em] font-bold ${muted}`}>Tech Stack</h3>
         <a
           href="https://github.com/DevTunechi"
@@ -46,105 +57,75 @@ function TechStack({ dark }: { dark: boolean }) {
           rel="noopener noreferrer"
           className={`text-[10px] font-bold uppercase tracking-[0.15em] flex items-center gap-1.5 hover:text-[#1e711e] transition-colors ${muted}`}
         >
-          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
           </svg>
-          View on GitHub →
+          GitHub →
         </a>
       </div>
 
-      {/* Cards — 1 col mobile, 2 col sm, 3 col lg */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* List */}
+      <div className={`rounded-2xl border overflow-hidden ${dark ? 'border-slate-800 bg-[#0d1a0d]' : 'border-slate-100 bg-white'}`}>
         {STACK.map((lang, i) => {
-          const { label, color: lvlColor, dots } = getLevelLabel(lang.score)
+          const { label, color: lvlColor } = getLevelLabel(lang.score)
+          const isLast = i === STACK.length - 1
           return (
             <motion.div
               key={lang.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.06, duration: 0.45, ease: 'easeOut' }}
-              className={`relative rounded-[1.5rem] border overflow-hidden`}
-              style={{
-                borderColor: `${lang.color}35`,
-                background: dark ? '#111d11' : '#f8fafc',
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: i * 0.05, duration: 0.3 }}
+              className={`flex items-center gap-4 px-5 py-4 transition-colors ${rowHover} ${!isLast ? `border-b ${divider}` : ''}`}
             >
-              {/* Gradient wash */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: `linear-gradient(135deg, ${lang.bg} 0%, transparent 65%)` }}
-              />
-              {/* Glow blob */}
-              <div
-                className="absolute -top-6 -left-6 w-24 h-24 rounded-full blur-2xl pointer-events-none"
-                style={{ backgroundColor: lang.color, opacity: 0.18 }}
+              {/* Colour dot */}
+              <span
+                className="w-2.5 h-2.5 rounded-full shrink-0"
+                style={{ backgroundColor: lang.color, boxShadow: `0 0 6px ${lang.color}80` }}
               />
 
-              <div className="relative p-5 flex flex-col gap-4" style={{ minHeight: '130px' }}>
+              {/* Name */}
+              <span className={`text-[13px] font-bold shrink-0 w-28 ${textCol}`}>{lang.name}</span>
 
-                {/* Top: dot + name */}
-                <div className="flex items-center gap-2.5">
-                  <span
-                    className="w-3 h-3 rounded-full shrink-0"
-                    style={{ backgroundColor: lang.color, boxShadow: `0 0 8px ${lang.color}99` }}
-                  />
-                  <span className={`text-[15px] font-bold leading-none ${textCol}`}>{lang.name}</span>
-                </div>
-
-                {/* Score bar */}
-                <div className="flex flex-col gap-1.5">
-                  <div className="flex justify-between items-baseline">
-                    <span className={`text-[10px] font-bold uppercase tracking-[0.12em] ${muted}`}>Proficiency</span>
-                    <span className="text-[13px] font-black tabular-nums" style={{ color: lang.color }}>
-                      {lang.score % 1 === 0 ? lang.score : lang.score.toFixed(2)} / 100
-                    </span>
-                  </div>
-                  <div className={`h-2 w-full rounded-full overflow-hidden ${barBg}`}>
-                    <motion.div
-                      className="h-full rounded-full"
-                      initial={{ width: '0%' }}
-                      animate={{ width: animated ? `${lang.score}%` : '0%' }}
-                      transition={{ duration: 1.2, delay: i * 0.06 + 0.15, ease: 'easeOut' }}
-                      style={{ backgroundColor: lang.color }}
-                    />
-                  </div>
-                </div>
-
-                {/* Level dots */}
-                <div className="flex items-center gap-2 mt-auto">
-                  <div className="flex gap-1">
-                    {[1, 2, 3, 4].map(d => (
-                      <span
-                        key={d}
-                        className="w-2 h-2 rounded-full transition-colors"
-                        style={{
-                          backgroundColor: d <= dots ? lvlColor : (dark ? '#334155' : '#e2e8f0'),
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <span
-                    className="text-[11px] font-bold uppercase tracking-[0.1em]"
-                    style={{ color: lvlColor }}
-                  >
-                    {label}
-                  </span>
-                </div>
+              {/* Progress bar */}
+              <div className={`flex-1 h-1.5 rounded-full overflow-hidden ${barBg}`}>
+                <motion.div
+                  className="h-full rounded-full"
+                  initial={{ width: '0%' }}
+                  animate={{ width: animated ? `${lang.score}%` : '0%' }}
+                  transition={{ duration: 1.1, delay: i * 0.05 + 0.1, ease: [0.34, 1.2, 0.64, 1] }}
+                  style={{ backgroundColor: lang.color }}
+                />
               </div>
+
+              {/* Score */}
+              <span
+                className="text-[12px] font-black tabular-nums shrink-0 w-10 text-right"
+                style={{ color: lang.color }}
+              >
+                {lang.score % 1 === 0 ? lang.score : lang.score.toFixed(1)}
+              </span>
+
+              {/* Level pill */}
+              <span
+                className="text-[9px] font-bold uppercase tracking-[0.08em] px-2.5 py-1 rounded-full shrink-0 hidden sm:block"
+                style={{ color: lvlColor, backgroundColor: `${lvlColor}18`, border: `1px solid ${lvlColor}30` }}
+              >
+                {label}
+              </span>
             </motion.div>
           )
         })}
       </div>
 
-      {/* Rainbow summary bar */}
-      <div className="mt-6 rounded-full overflow-hidden h-2 flex">
+      {/* Rainbow bar */}
+      <div className="mt-4 rounded-full overflow-hidden h-1.5 flex">
         {STACK.map((lang, i) => (
           <motion.div
             key={lang.name}
             className="h-full"
             initial={{ width: '0%' }}
             animate={{ width: animated ? `${100 / STACK.length}%` : '0%' }}
-            transition={{ duration: 1.2, delay: i * 0.06, ease: 'easeOut' }}
+            transition={{ duration: 1.1, delay: i * 0.05, ease: 'easeOut' }}
             style={{ backgroundColor: lang.color }}
             title={`${lang.name} — ${lang.score}/100`}
           />
