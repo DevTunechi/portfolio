@@ -17,14 +17,6 @@ const STACK: { name: string; score: number; color: string; bg: string }[] = [
   { name: 'Prisma Schema',  score: 85,    color: '#0c344b', bg: 'rgba(12,52,75,0.15)'     },
 ]
 
-function getLevelLabel(score: number): { label: string; color: string; dots: number } {
-  if (score >= 80) return { label: 'Expert',       color: '#1e711e', dots: 4 }
-  if (score >= 60) return { label: 'Advanced',     color: '#3178c6', dots: 3 }
-  if (score >= 40) return { label: 'Intermediate', color: '#f59e0b', dots: 2 }
-  return              { label: 'Beginner',      color: '#94a3b8', dots: 1 }
-}
-
-
 function getLevelLabel(score: number): { label: string; color: string } {
   if (score >= 80) return { label: 'Expert',       color: '#1e711e' }
   if (score >= 60) return { label: 'Advanced',     color: '#3178c6' }
